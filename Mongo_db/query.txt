@@ -1,0 +1,26 @@
+> db.college_data.insertMany([{active:true,name:"c"},{active:true,name:"b"},{active:true,name:"a"}])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("61ffac310e5bcd6b8b408583"),
+		ObjectId("61ffac310e5bcd6b8b408584"),
+		ObjectId("61ffac310e5bcd6b8b408585")
+	]
+}
+> db.college_data.findOne({active:true})
+{
+	"_id" : ObjectId("61ffac310e5bcd6b8b408583"),
+	"active" : true,
+	"name" : "c"
+}
+> db.college_data.find({active:true})
+{ "_id" : ObjectId("61ffac310e5bcd6b8b408583"), "active" : true, "name" : "c" }
+{ "_id" : ObjectId("61ffac310e5bcd6b8b408584"), "active" : true, "name" : "b" }
+{ "_id" : ObjectId("61ffac310e5bcd6b8b408585"), "active" : true, "name" : "a" }
+> db.college_data.find({active:true}).limit(1)
+{ "_id" : ObjectId("61ffac310e5bcd6b8b408583"), "active" : true, "name" : "c" }
+> db.college_data.find({active:true}).limit(1).skip(2)
+{ "_id" : ObjectId("61ffac310e5bcd6b8b408585"), "active" : true, "name" : "a" }
+> db.college_data.find({active:true,name:"a"})
+{ "_id" : ObjectId("61ffac310e5bcd6b8b408585"), "active" : true, "name" : "a" }
+

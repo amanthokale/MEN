@@ -1,0 +1,63 @@
+> show dbs
+admin        0.000GB
+amanthokale  0.000GB
+cloudnotes   0.000GB
+config       0.000GB
+local        0.000GB
+test         0.000GB
+tp           0.000GB
+> use amanthokale
+switched to db amanthokale
+> db.college_data.insertOne({name:aman,roll.no:176,clg:NWC})
+2022-02-06T16:14:09.268+0530 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:41
+> db.college_data.insertOne({name:"aman",roll.no:176,clg:"NWC"})
+2022-02-06T16:14:32.060+0530 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:43
+> show collections
+college_data
+> db.college_data.insertOne({name:"aman",roll:176,clg:"NWC"})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("61ffa7060e5bcd6b8b40857f")
+}
+> show collections
+college_data
+> db.college_data.find().pretty()
+{
+	"_id" : ObjectId("61ffa338bb8807d703248ffa"),
+	"name" : "AMAN",
+	"Roll.no" : 176,
+	"college" : "Nowrosjee wadia college"
+}
+{
+	"_id" : ObjectId("61ffa7060e5bcd6b8b40857f"),
+	"name" : "aman",
+	"roll" : 176,
+	"clg" : "NWC"
+}
+> db.college_data.insertMany([{name:"ajay"},{name:"pratik"},{name:"shekhar"}])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("61ffa78e0e5bcd6b8b408580"),
+		ObjectId("61ffa78e0e5bcd6b8b408581"),
+		ObjectId("61ffa78e0e5bcd6b8b408582")
+	]
+}
+> db.college_data.find().pretty()
+{
+	"_id" : ObjectId("61ffa338bb8807d703248ffa"),
+	"name" : "AMAN",
+	"Roll.no" : 176,
+	"college" : "Nowrosjee wadia college"
+}
+{
+	"_id" : ObjectId("61ffa7060e5bcd6b8b40857f"),
+	"name" : "aman",
+	"roll" : 176,
+	"clg" : "NWC"
+}
+{ "_id" : ObjectId("61ffa78e0e5bcd6b8b408580"), "name" : "ajay" }
+{ "_id" : ObjectId("61ffa78e0e5bcd6b8b408581"), "name" : "pratik" }
+{ "_id" : ObjectId("61ffa78e0e5bcd6b8b408582"), "name" : "shekhar" }
+> 
+
