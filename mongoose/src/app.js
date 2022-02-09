@@ -137,6 +137,7 @@ studentList.save().then(()=>{                             //Single Document
 const updatedoc= async ()=>{
   const a = await Student.findOneAndUpdate({Name:"Aman Thokale"},{$set:{Name:"Huzef",Roll_no:121}},{new:true});
   console.log(a)
+  
 }
 
 //updatedoc();
